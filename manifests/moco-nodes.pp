@@ -1005,6 +1005,8 @@ node /balrogworker-\d*\.srv\.releng\..*\.mozilla\.com/ {
 node /balrogworker-dev\d*\.srv\.releng\..*\.mozilla\.com/ {
     $aspects          = [ 'maximum-security' ]
     $balrogworker_env = 'dev'
+    $pin_puppet_server = 'releng-puppet2.srv.releng.scl3.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $timezone         = 'UTC'
     $only_user_ssh    = true
     include toplevel::server::balrogscriptworker
@@ -1022,6 +1024,8 @@ node /beetmoverworker-.*\.srv\.releng\..*\.mozilla\.com/ {
 node /beetmover-dev.*\.srv\.releng\..*\.mozilla\.com/ {
     $aspects             = [ 'maximum-security' ]
     $beetmoverworker_env = 'dev'
+    $pin_puppet_server = 'releng-puppet2.srv.releng.scl3.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $timezone            = 'UTC'
     $only_user_ssh       = true
     include toplevel::server::beetmoverscriptworker
