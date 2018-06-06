@@ -627,6 +627,8 @@ node 'buildbot-master82.bb.releng.scl3.mozilla.com' {
 node 'buildbot-master83.bb.releng.scl3.mozilla.com' {
     $aspects           = [ 'high-security' ]
     $only_user_ssh     = true
+    $pin_puppet_server = 'releng-puppet2.srv.releng.scl3.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $releaserunner_env = 'dev'
     $releaserunner3_env = 'dev'
     buildmaster::buildbot_master::mozilla {
