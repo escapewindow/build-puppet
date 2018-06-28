@@ -1070,6 +1070,8 @@ node /^dep-pushapkworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^pushapkworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $pushapk_scriptworker_env = 'prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
