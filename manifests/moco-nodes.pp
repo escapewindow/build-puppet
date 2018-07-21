@@ -49,6 +49,8 @@ node /^t-linux64-(ms|xe)-\d{3}\.test\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^mac-(v2-|)signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
     # mac signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $timezone      = 'GMT'
     $only_user_ssh = true
     include fw::profiles::mac_signing
@@ -58,6 +60,8 @@ node /^mac-(v2-|)signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
     # linux signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $timezone      = 'UTC'
     $only_user_ssh = true
     include fw::profiles::signing
@@ -67,6 +71,8 @@ node /^signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^mac-depsigning\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
     # mac signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $timezone      = 'GMT'
     $only_user_ssh = true
     include fw::profiles::mac_depsigning
@@ -76,6 +82,8 @@ node /^mac-depsigning\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^depsigning\d+\.srv\.releng\.(mdc1|mdc2|use1|usw2)\.mozilla\.com$/ {
     # linux dev signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $timezone      = 'UTC'
     $only_user_ssh = true
     include toplevel::server::depsigning
@@ -243,6 +251,8 @@ node /^signingworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 # Signing scriptworkers
 node /^signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $signing_scriptworker_env = 'prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -251,6 +261,8 @@ node /^signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $signing_scriptworker_env = 'dep'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -259,6 +271,8 @@ node /^depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^signing-linux-dev.*\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $signing_scriptworker_env = 'dev'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -267,6 +281,8 @@ node /^signing-linux-dev.*\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-signing-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $signing_scriptworker_env = 'comm-thunderbird-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -275,6 +291,8 @@ node /^tb-signing-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $signing_scriptworker_env = 'comm-thunderbird-dep'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -296,6 +314,8 @@ node /^dep-m-signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 # in order to leave up to 100 workers instead of 10.
 node /^mobil-signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $signing_scriptworker_env = 'mobile-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -305,6 +325,8 @@ node /^mobil-signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 # Addon scriptworkers
 node /^addonworker-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $addon_scriptworker_env = 'prod'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -313,6 +335,8 @@ node /^addonworker-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^addonworker-dev-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $addon_scriptworker_env = 'dev'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -322,6 +346,8 @@ node /^addonworker-dev-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 # Balrog scriptworkers
 node /^balrogworker-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $balrogworker_env = 'prod'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -330,6 +356,8 @@ node /^balrogworker-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^balrogworker-dev\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $balrogworker_env = 'dev'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -338,6 +366,8 @@ node /^balrogworker-dev\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-balrog-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $balrogworker_env = 'comm-thunderbird-prod'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -346,6 +376,8 @@ node /^tb-balrog-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-balrogworker-dev\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $balrogworker_env = 'comm-thunderbird-dev'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -355,6 +387,8 @@ node /^tb-balrogworker-dev\d+\.srv\.releng\..*\.mozilla\.com$/ {
 # Beetmover scriptworkers
 node /^beetmoverworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects             = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $beetmoverworker_env = 'prod'
     $timezone            = 'UTC'
     $only_user_ssh       = true
@@ -363,6 +397,8 @@ node /^beetmoverworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^beetmover-dev.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects             = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $beetmoverworker_env = 'dev'
     $timezone            = 'UTC'
     $only_user_ssh       = true
@@ -371,6 +407,8 @@ node /^beetmover-dev.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-beetmover-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects             = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $beetmoverworker_env = 'comm-thunderbird-prod'
     $timezone            = 'UTC'
     $only_user_ssh       = true
@@ -379,6 +417,8 @@ node /^tb-beetmover-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-beetmover-dev\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects             = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $beetmoverworker_env = 'comm-thunderbird-dev'
     $timezone            = 'UTC'
     $only_user_ssh       = true
@@ -388,6 +428,8 @@ node /^tb-beetmover-dev\d+\.srv\.releng\..*\.mozilla\.com$/ {
 # https://github.com/mozilla-mobile workers.
 node /^mobile-beetmover-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects             = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $beetmoverworker_env = 'mobile-prod'
     $timezone            = 'UTC'
     $only_user_ssh       = true
@@ -406,6 +448,8 @@ node /^mobil-beetmover-dev\d*\.srv\.releng\..*\.mozilla\.com$/ {
 # Bouncer scriptworkers
 node /^bouncerworker-dev.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $bouncer_scriptworker_env = 'dev'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -414,6 +458,8 @@ node /^bouncerworker-dev.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^bouncerworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $bouncer_scriptworker_env = 'prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -422,6 +468,8 @@ node /^bouncerworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-bouncer-dev-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $bouncer_scriptworker_env = 'comm-thunderbird-dev'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -430,6 +478,8 @@ node /^tb-bouncer-dev-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-bouncer-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $bouncer_scriptworker_env = 'comm-thunderbird-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -439,6 +489,8 @@ node /^tb-bouncer-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 # PushAPK scriptworkers
 node /^dep-pushapkworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $pushapk_scriptworker_env = 'dep'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -447,6 +499,8 @@ node /^dep-pushapkworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^pushapkworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $pushapk_scriptworker_env = 'prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -467,6 +521,8 @@ node /^dep-m-pushapkworker-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 # in order to leave up to 100 workers instead of 10.
 node /^mobil-pushapkworker-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $pushapk_scriptworker_env = 'mobile-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -476,6 +532,8 @@ node /^mobil-pushapkworker-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 # PushSnap scriptworkers
 node /^dep-pushsnapworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $pushsnap_scriptworker_env = 'dep'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -484,6 +542,8 @@ node /^dep-pushsnapworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^pushsnapworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $pushsnap_scriptworker_env = 'prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -494,6 +554,8 @@ node /^pushsnapworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 # Transparency scriptworkers
 node /^binarytransparencyworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $transparencyworker_env = "dev"
     $timezone = "UTC"
     $only_user_ssh = true
@@ -503,6 +565,8 @@ node /^binarytransparencyworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 # shipit scriptworkers
 node /^shipitworker-dev-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $shipit_scriptworker_env  = 'dev'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -511,6 +575,8 @@ node /^shipitworker-dev-.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^shipitworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $shipit_scriptworker_env  = 'prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -519,6 +585,8 @@ node /^shipitworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-shipit-dev-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $shipit_scriptworker_env  = 'tb-dev'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -527,6 +595,8 @@ node /^tb-shipit-dev-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-shipit-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $shipit_scriptworker_env  = 'tb-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -536,6 +606,8 @@ node /^tb-shipit-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 # Treescript workers
 node /^treescriptworker-dev\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $treescriptworker_env = 'dev'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -544,6 +616,8 @@ node /^treescriptworker-dev\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^treescriptworker\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $treescriptworker_env = 'prod'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -552,6 +626,8 @@ node /^treescriptworker\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-tree-comm-dev-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $treescriptworker_env = 'tb-comm-dev'
     $timezone         = 'UTC'
     $only_user_ssh    = true
@@ -560,6 +636,8 @@ node /^tb-tree-comm-dev-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-tree-comm-\d+\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $treescriptworker_env = 'tb-comm-prod'
     $timezone         = 'UTC'
     $only_user_ssh    = true
