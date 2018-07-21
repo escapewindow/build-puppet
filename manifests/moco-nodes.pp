@@ -48,6 +48,8 @@ node /^tc-host-secrets\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^mac-(v2-|)signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
     # mac signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $timezone      = 'GMT'
     $only_user_ssh = true
     include fw::profiles::mac_signing
@@ -57,6 +59,8 @@ node /^mac-(v2-|)signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
     # linux signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $timezone      = 'UTC'
     $only_user_ssh = true
     include fw::profiles::signing
@@ -66,6 +70,8 @@ node /^signing\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^mac-depsigning\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
     # mac signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $timezone      = 'GMT'
     $only_user_ssh = true
     include fw::profiles::mac_depsigning
@@ -75,6 +81,8 @@ node /^mac-depsigning\d+\.srv\.releng\.(mdc1|mdc2)\.mozilla\.com$/ {
 node /^depsigning\d+\.srv\.releng\.(mdc1|mdc2|use1|usw2)\.mozilla\.com$/ {
     # linux dev signing servers
     $aspects       = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $timezone      = 'UTC'
     $only_user_ssh = true
     include toplevel::server::depsigning
@@ -246,6 +254,8 @@ node /^signingworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 # Signing scriptworkers
 node /^signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $signing_scriptworker_env = 'prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -254,6 +264,8 @@ node /^signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $signing_scriptworker_env = 'dep'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -262,6 +274,8 @@ node /^depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^signing-linux-dev.*\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $signing_scriptworker_env = 'dev'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -270,6 +284,8 @@ node /^signing-linux-dev.*\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-signing-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $signing_scriptworker_env = 'comm-thunderbird-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -278,6 +294,8 @@ node /^tb-signing-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^tb-depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $signing_scriptworker_env = 'comm-thunderbird-dep'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
@@ -288,6 +306,8 @@ node /^tb-depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
 # in order to leave up to 100 workers instead of 10.
 node /^mobil-signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'asasaki'
     $signing_scriptworker_env = 'mobile-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
