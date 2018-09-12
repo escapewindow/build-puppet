@@ -439,6 +439,13 @@ node 'buildbot-master01.bb.releng.use1.mozilla.com' {
     include toplevel::mixin::bouncer_check
 }
 
+node '10.134.68.170' {
+    $aspects       = [ 'high-security' ]
+    $only_user_ssh = true
+    $l10n_bumper_env = 'jamun'
+    include toplevel::server::l10n_bumper
+}
+
 node 'buildbot-master02.bb.releng.use1.mozilla.com' {
     $aspects       = [ 'high-security' ]
     $only_user_ssh = true

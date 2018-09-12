@@ -634,5 +634,10 @@ class config inherits config::base {
             mozharness_revision => '9d21ea9afe7a61cfe80d577809bf3191e816baec',
             config_file         => 'l10n_bumper/mozilla-beta.py',
         },
+        'jamun'    => {
+            mozharness_repo     => 'https://hg.mozilla.org/mozilla-central',
+            mozharness_revision => '9d21ea9afe7a61cfe80d577809bf3191e816baec',
+            config_file         => 'l10n_bumper/jamun.py',
+        },
     }
 }
