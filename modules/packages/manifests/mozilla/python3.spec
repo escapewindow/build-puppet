@@ -1,13 +1,13 @@
-%define realname python36
-%define pyver 3.6
-%define pyrel 5
+%define realname python37
+%define pyver 3.7
+%define pyrel 1
 %define _prefix /tools/%{realname}
 # We set lib explicitly to avoid lib64 issues
 %define _libdir %{_prefix}/lib
 
 Name:       mozilla-%{realname}
 Version:        %{pyver}.%{pyrel}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        This is a packaging of %{realname} %{version}-%{release} for Mozilla Release Engineering infrastructure
 
 Group:          mozilla
@@ -69,9 +69,11 @@ rm -rf $RPM_BUILD_ROOT
 %dir %_prefix
 %_prefix/*
 /usr/local/bin/python%{pyver}
-%doc /usr/share/man/man1/python3.6.1.gz
+%doc /usr/share/man/man1/python3.7.1.gz
 
 %changelog
+* Mon Oct 22 2018 Aki Sasaki <aki mozilla com> 3.7.1-1
+- 3.7.1
 * Mon Sep 24 2018 Aki Sasaki <aki mozilla com> 3.6.5-2
 - add lzma support
 * Fri Apr 13 2018 Ben Hearsum <bhearsum mozilla com> 3.6.5-1
