@@ -3,5 +3,13 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 class python3::settings {
 
-    $python3_virtualenv_version    = '3.6'
+    case $::operatingsystem {
+        CentOS: {
+            $python3_virtualenv_version    = '3.7'
+        }
+        # XXX bump this when we land a 3.7 dmg
+        Darwin: {
+            $python3_virtualenv_version    = '3.6'
+        }
+    }
 }

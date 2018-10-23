@@ -12,20 +12,20 @@ class packages::mozilla::python3 {
         CentOS: {
             $python3 = '/tools/python3/bin/python'
 
-            # these install into /tools/python36.  To support tools that
+            # these install into /tools/python37.  To support tools that
             # just need any old Python3, they are symlinked from /tools/python3.
             Anchor['packages::mozilla::python3::begin'] ->
             file {
                 '/tools/python3':
                     ensure => link,
-                    target => '/tools/python36';
+                    target => '/tools/python37';
             } -> Anchor['packages::mozilla::python3::end']
 
             realize(Packages::Yumrepo['python3'])
             Anchor['packages::mozilla::python3::begin'] ->
             package {
-                'mozilla-python36':
-                    ensure => '3.6.5-2.el6';
+                'mozilla-python37':
+                    ensure => '3.7.1-1.el6';
             } -> Anchor['packages::mozilla::python3::end']
         }
         Darwin: {

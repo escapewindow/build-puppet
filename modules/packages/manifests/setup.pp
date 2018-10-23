@@ -122,7 +122,7 @@ class packages::setup {
                     url_path => "repos/yum/custom/procmail/${::architecture}";
 
                 'python3':
-                    url_path => "repos/yum/custom/mozilla-python36/${::architecture}";
+                    url_path => "repos/yum/custom/mozilla-python37/${::architecture}";
 
                 'python27-12':
                     url_path => "repos/yum/custom/mozilla-python2712/${::architecture}";
@@ -198,7 +198,7 @@ class packages::setup {
             # to flush the metadata cache, increase this value by one (or
             # anything, really, just change it).
 
-            $repoflag = 99
+            $repoflag = 100
 
             file {
                 '/etc/.repo-flag':
