@@ -5,15 +5,13 @@
 # https://wiki.mozilla.org/ReleaseEngineering/Puppet/Modules/python
 define python3::virtualenv($python3, $ensure='present', $packages=null, $user=null, $group=null, $mode='0755', $rebuild_trigger=null) {
     include python3::virtualenv::settings
-    include python3::virtualenv::prerequisites
 
     $virtualenv = $title
     $ve_cmd     = $::operatingsystem ? {
         # use --system-site-packages on Windows so that we can have access to pywin32, which
         # isn't pip-installable
         windows => "${python3} -BE ${python3::virtualenv::settings::misc_python_dir}\\virtualenv.py --system-site-packages --python=${python3} --distribute --never-download ${virtualenv}",
-        default => "${python3} -BE ${python3::virtualenv::settings::misc_python_dir}/virtualenv.py \
-                    --python=${python3} --distribute --never-download ${virtualenv}",
+        default => "${python3} -BE -mvenv ${virtualenv}",
     }
 
     # Figure out user/group if they haven't been set
@@ -92,7 +90,6 @@ define python3::virtualenv($python3, $ensure='present', $packages=null, $user=nu
                     logoutput => on_failure,
                     require   => [
                         File[$virtualenv],
-                        Class['python3::virtualenv::prerequisites'],
                     ],
                     creates   => $::operatingsystem ? {
                         windows => "${virtualenv}/Scripts/pip.exe",
