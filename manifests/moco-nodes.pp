@@ -556,6 +556,8 @@ node /^tb-shipit-\d+\.srv\.releng\..*\.mozilla\.com$/ {
 node /^treescriptworker-dev\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects          = [ 'maximum-security' ]
     $treescriptworker_env = 'dev'
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $timezone         = 'UTC'
     $only_user_ssh    = true
     include toplevel::server::treescriptworker
