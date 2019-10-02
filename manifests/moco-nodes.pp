@@ -243,7 +243,10 @@ node /^signingworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 # Signing scriptworkers
 node /^signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
-    $signing_scriptworker_env = 'prod'
+    # Pin one signing scriptworker for mpd001
+    $pin_puppet_server        = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env           = 'mpd001'
+    $signing_scriptworker_env = 'mpd001-prod'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
     include toplevel::server::signingscriptworker

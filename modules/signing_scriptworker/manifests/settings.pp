@@ -169,5 +169,22 @@ class signing_scriptworker::settings {
             authenticode_timestamp   => 'null',
             authenticode_url         => '',
         },
+        'mpd001-prod' => {
+            worker_type              => 'mpd001-3-signing',
+            worker_group             => 'mpd001-3-signing',
+            taskcluster_client_id    => 'project/releng/scriptworker/mpd001-3-signing',
+            taskcluster_access_token => secret('mpd001_signing_scriptworker_taskcluster_access_token'),
+            passwords_template       => 'passwords-mpd001.json.erb',
+            scope_prefixes           => ['project:mpd001:releng:signing'],
+            sign_chain_of_trust      => true,
+            verify_chain_of_trust    => true,
+            verify_cot_signature     => true,
+            cot_product              => 'mpd001',
+            github_oauth_token       => secret('mpd001_github_oauth_token_production'),
+            gpg_keyfile              => 'KEY_prod',
+            authenticode_cert        => 'nightly.crt',
+            authenticode_url         => 'https://mozilla.com',
+            authenticode_timestamp   => '"old"',
+        },
     }
 }
