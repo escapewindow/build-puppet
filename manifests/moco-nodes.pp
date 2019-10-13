@@ -243,7 +243,9 @@ node /^signingworker-.*\.srv\.releng\..*\.mozilla\.com$/ {
 # Signing scriptworkers
 node /^signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
-    $signing_scriptworker_env = 'prod'
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
+    $signing_scriptworker_env = 'prod-xpi'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
     include toplevel::server::signingscriptworker
@@ -251,7 +253,9 @@ node /^signing-linux-\d*\.srv\.releng\..*\.mozilla\.com$/ {
 
 node /^depsigning-worker.*\.srv\.releng\..*\.mozilla\.com$/ {
     $aspects                  = [ 'maximum-security' ]
-    $signing_scriptworker_env = 'dep'
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
+    $signing_scriptworker_env = 'dep-xpi'
     $timezone                 = 'UTC'
     $only_user_ssh            = true
     include toplevel::server::signingscriptworker
