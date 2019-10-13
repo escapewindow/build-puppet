@@ -169,5 +169,23 @@ class signing_scriptworker::settings {
             authenticode_timestamp   => 'null',
             authenticode_url         => '',
         },
+        'dep-xpi' => {
+            worker_type              => 'xpi-t-signing',
+            worker_group             => 'signing-linux-v1',
+            taskcluster_client_id    => 'project/releng/scriptworker/xpi-t-signing',
+            taskcluster_access_token => secret('xpi_dep_signing_scriptworker_taskcluster_access_token'),
+            passwords_template       => 'dep-passwords-xpi.json.erb',
+            scope_prefixes           => ['project:xpi:releng:signing:'],
+            sign_chain_of_trust      => false,
+            verify_chain_of_trust    => true,
+            verify_cot_signature     => false,
+            cot_product              => 'xpi',
+            github_oauth_token       => secret('scriptworker_github_oauth_token_staging'),
+            gpg_keyfile              => 'KEY_dep',
+            widevine_cert            => 'widevine_dep.crt',
+            authenticode_cert        => 'dep.crt',
+            authenticode_url         => 'https://mozilla.com',
+            authenticode_timestamp   => 'null',
+        },
     }
 }
