@@ -210,6 +210,8 @@ node /.*packager\d+\.srv\.releng\.use1\.mozilla\.com$/ {
 node 'buildbot-master01.bb.releng.use1.mozilla.com' {
     $aspects       = [ 'high-security' ]
     $only_user_ssh = true
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $l10n_bumper_env = 'mozilla-beta'
     include toplevel::server::buildmaster
     include toplevel::mixin::l10n_bumper
@@ -220,6 +222,8 @@ node 'buildbot-master01.bb.releng.use1.mozilla.com' {
 node 'buildbot-master77.bb.releng.use1.mozilla.com' {
     $aspects         = [ 'high-security' ]
     $only_user_ssh   = true
+    $pin_puppet_server = 'releng-puppet2.srv.releng.mdc1.mozilla.com'
+    $pin_puppet_env    = 'aki'
     $l10n_bumper_env = 'mozilla-central'
     include toplevel::server::buildmaster
     include toplevel::mixin::l10n_bumper
