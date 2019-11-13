@@ -18,7 +18,6 @@ class l10n_bumper::services {
     $config_file = $env_config['config_file']
     file {
         '/etc/cron.d/l10n_bumper':
-            require => File["${basedir}/download_mozharness.sh"],
             mode    => '0600',
             content => template('l10n_bumper/cron.erb');
     }

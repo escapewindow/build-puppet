@@ -28,21 +28,6 @@ class l10n_bumper {
             mode   => '0755',
             owner  => $::users::builder::username,
             group  => $::users::builder::group;
-        "${root}/download_mozharness.sh":
-            require => File[$root],
-            mode    => '0755',
-            owner   => $::users::builder::username,
-            group   => $::users::builder::group,
-            content => template('l10n_bumper/download_mozharness.sh.erb'),
-            notify  => Exec['download_mozharness'];
-    }
-
-    exec {
-        # download mozharness
-        'download_mozharness':
-            require => File["${root}/download_mozharness.sh"],
-            command => "${root}/download_mozharness.sh",
-            user    => $::users::builder::username;
     }
 
 }
